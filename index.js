@@ -56,6 +56,17 @@ const server = http.createServer((req, res) => {
             }
         });
     } 
+
+
+    // About route
+    else if (req.method === 'GET' && req.url === '/about') {
+        res.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+
+        res.end('About Page\n');
+    }
+
     else {
         res.writeHead(404);
         res.end(JSON.stringify({
@@ -66,5 +77,5 @@ const server = http.createServer((req, res) => {
 
 
 server.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
